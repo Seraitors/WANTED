@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Faqs</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+</head>
+<body>
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+                <li> <img src="/Imagen/calabera.png" id="foto" alt="Tu imagen" class="w-25 h-60"></li>
+                <li><a href="/figuras/lista" class="nav-link px-2 text-secondary">Inicio</a></li>
+                <li><a href="/caracteristicas" class="nav-link px-2 text-white">Características</a></li>
+                <li><a href="/pagoEnca" class="nav-link px-2 text-white">Precios</a></li>
+                <li><a href="/faqs" class="nav-link px-2 text-white">FAQs</a></li>
+                <li><a href="/encabezado" class="nav-link px-2 text-white">Acerca</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Buscar">
+            </form>
+
+            <div class="text-end">
+                <a href="/creador" class="btn btn-outline-light me-2">Creador</a>
+                <a href="/inicio" class="btn btn-warning">Exit</a>
+
+            </div>
+        </div>
+    </div>
+</header>
+<!--cambiar el th action con lo que ponga en el controlador-->
+<form th:action="@{/exit/faqs}" method="post">
+
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body" id="centrar">
+                <h3> ¿Qué son las figuras de anime?</h3>
+                <p>Las figuras de anime son estatuillas coleccionables que representan personajes de anime, manga, videojuegos y otros medios de entretenimiento japonés. Están diseñadas con gran atención al detalle y se utilizan comúnmente para exhibición y coleccionismo. </p>
+            </div>
+
+            <div class="card-body">
+                <h3>¿Dónde puedo comprar figuras de anime?</h3>
+                <p> Puedes comprar figuras de anime en nuestra tienda en línea. Ofrecemos una amplia variedad de figuras de alta calidad de tus personajes favoritos.</p>
+            </div>
+
+
+            <div class="card-body">
+
+                <h3> ¿Son las figuras originales o réplicas?</h3>
+                <p>
+                    Todas nuestras figuras son originales y con licencia oficial. Trabajamos directamente con los fabricantes y distribuidores autorizados para asegurarnos de ofrecer productos auténticos.
+                </p>
+            </div>
+
+            <div class="card-body">
+                <h3> ¿Cuál es el material de las figuras de anime? </h3>
+                <p>
+                    El material puede variar, pero las figuras suelen estar hechas de plástico de alta calidad o PVC (vinilo policloruro). Esto permite detalles precisos y colores vibrantes.
+
+                </p>
+            </div>
+
+
+            <div class="card-body">
+            <h3> ¿Ofrecen figuras exclusivas o de edición limitada?</h3>
+
+                <p> Sí, en ocasiones ofrecemos figuras exclusivas o de edición limitada. Te recomendamos estar atento a nuestro sitio web y redes sociales para enterarte de las últimas novedades.</p>
+
+
+            </div>
+
+
+            <div class="card-body">
+                <h3>  ¿Cómo se realizan los envíos?</h3>
+
+                <p> Realizamos envíos a nivel nacional e internacional. Utilizamos servicios de mensajería confiables para asegurarnos de que tus figuras lleguen en perfectas condiciones.</p>
+
+
+
+
+            </div>
+
+            <div class="card-body">
+                <h3> ¿Cuánto tiempo tarda en llegar mi pedido?</h3>
+
+                <p> El tiempo de entrega puede variar según tu ubicación y el método de envío seleccionado. Por lo general, el plazo de entrega nacional es de 2-5 días hábiles, y el internacional puede variar. </p>
+
+            </div>
+
+
+
+            <div class="card-body">
+                <h3> ¿Aceptan devoluciones?</h3>
+
+                <p> Sí, aceptamos devoluciones en caso de productos dañados o defectuosos. Consulta nuestra política de devoluciones en la sección correspondiente de nuestro sitio web para obtener más información.</p>
+
+            </div>
+
+            <div class="card-body">
+                <h3> Cómo puedo ponerme en contacto con el servicio al cliente</h3>
+
+                <p>Puedes contactar a nuestro servicio al cliente a través de la página de contacto en nuestro sitio web o por correo electrónico. Estamos aquí para ayudarte con cualquier pregunta o inquietud que puedas tener.</p>
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <di class="pt-3">
+
+        <button type="submit " class="btn btn-primary"> Inicio</button>
+    </di>
+
+</form>
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}" ></script>
+</body>
+</html>

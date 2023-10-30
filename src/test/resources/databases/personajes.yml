@@ -1,0 +1,5 @@
+personajes:
+  - nombre: "Luffy"
+    arco: "wano"
+    descripcion: "Figura de Luffy de cuando llegó a Wano"
+    precio: 90

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Caracteristicas</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+                <li> <img src="/Imagen/calabera.png" id="foto" alt="Tu imagen" class="w-25 h-60"></li>
+                <li><a href="/figuras/lista" class="nav-link px-2 text-secondary">Inicio</a></li>
+                <li><a href="/caracteristicas" class="nav-link px-2 text-white">Características</a></li>
+                <li><a href="/pagoEnca" class="nav-link px-2 text-white">Precios</a></li>
+                <li><a href="/faqs" class="nav-link px-2 text-white">FAQs</a></li>
+                <li><a href="/encabezado" class="nav-link px-2 text-white">Acerca</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Buscar">
+            </form>
+
+            <div class="text-end">
+                <a href="/creador" class="btn btn-outline-light me-2">Creador</a>
+                <a href="/inicio" class="btn btn-warning">Exit</a>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<h1>Características de la Figura</h1>
+
+<div class="container-fluid" >
+
+
+<div class="card">
+
+    <div class="card-body">
+
+
+
+
+    <h2>Título de la Figura:</h2>
+    <p> Figuras de One Piece/Dragon ball</p>
+
+
+    <h2>Descripción:</h2>
+    <p>Estas figuras son las más conocidas en todo el mundo, no hay una sola persona que no haya tenido una de estas figuras de Acción cuando era niño , estas figuras comenzaron a hacerse famosas después de que Hasbro creó su serie de  figuras de acción para el programa de televisión GI Joe, que por cierto estaba dirigido para los niños, por lo que no era adecuado llamarlos muñecas y decidieron llamarlos “figuras de acción”. </p>
+
+
+
+    <h2>Dimensiones:</h2>
+    <p>Altura: 15 cm<br> Ancho: 10 cm<br> Profundidad: 20 cm</p>
+
+
+
+
+
+
+    <h2>Material:</h2>
+    <p>Material utilizado para crear la figura :<br>
+        La gran mayoría de figuras de anime están hechas en PVC y compañías como Banpresto o Good Smile Company lo emplean en sus creaciones.<br>
+        Mantenimiento: Quitar el polvo a menudo para evitar que se nos pegue a la figura, una vez por semana sería lo ideal.
+
+    </p>
+
+
+
+    <h2>Técnica:</h2>
+    <p>Técnica artística utilizada para crear la figura: <br>
+
+        Mucho amor y cariño
+
+    </p>
+
+
+
+
+
+    <h2>Artista o Creador:</h2>
+    <p>Bandai Banpresto, Figma, ARTFX, Bandai SH Figuarts, PlayArts, SEGA Prize o Nendoroid</p>
+
+
+
+
+
+    <h2>Estilo Artístico:</h2>
+    <p>Cada figura tiene su propio estilo o su propia creación </p>
+
+
+
+    <h2>Significado o Simbolismo:</h2>
+    <p>Descripción del significado o simbolismo de la figura, si es relevante.</p>
+
+
+
+
+
+    <h2>Estado de Conservación:</h2>
+    <p>Huye de la luz solar o de cualquier otra fuente de calor, como focos, bombillas, estufas o radiadores, son muy dañinos para nuestras figuras. <br>
+        Mantén el humo y el polvo lejos de tus figuras ya que pueden dañar muy severamente las piezas. <br>
+        Coloca tus figuras en un ambiente fresco, ya que de esta forma evitaremos que las figuras experimenten una secreción aceitosa al tacto que les haga ser más frágiles. <br>
+        Olvídate de utilizar agua para la limpieza de tus figuras, ya que esta deteriora el material del que está compuesto. <br>
+        Ni se te ocurra utilizar productos químicos o de limpieza comunes sobre tu figura, podrías dañar profundamente el color y también el tacto de la figura. <br>
+        Si eres de los que prefieren quitar el polvo de las figuras con aire, por ejemplo, de un secador, hazlo siempre con la opción de aire frio, puesto que el aire caliente podría dañar los materiales e incluso la pintura de tus piezas.
+
+    </p>
+
+
+
+    <h2>Procedencia:</h2>
+    <p>La gran mayoria son de Japon</p>
+
+
+
+
+<h2>Precio o Valor:</h2>
+<p>Precio o valor estimado de la figura, si es aplicable.</p>
+
+<h2>Fotografías:</h2>
+<img src="/Imagen/zoro.jpg" alt="Zoro">
+<img src="/Imagen/sanks.jpg" alt="Snaks">
+
+
+<h2>Vídeos de montajes :</h2>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/eyy7xoPvpwk?si=Knp87j1YsFo006EJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <div class="pt-3">
+
+<a href="/figuras/lista" class="btn btn-primary"> Inicio</a>
+</div>
+
+</div>
+</div>
+</div>
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}" ></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista</title>
+
+
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="/css/caja-boostrap.css" type="text/css" rel="stylesheet"  >
+    <!-- >  Este es el link para poner los iconos en boostrap <!-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+
+<header class="p-3 bg-dark text-white" >
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+                <li> <img src="/Imagen/calabera.png" id="foto" alt="Tu imagen" class="w-25 h-60"></li>
+                <li><a href="/figuras/lista" class="nav-link px-2 text-secondary">Inicio</a></li>
+                <li><a href="/caracteristicas" class="nav-link px-2 text-white">Características</a></li>
+                <li><a href="/pagoEnca" class="nav-link px-2 text-white">Precios</a></li>
+                <li><a href="/faqs" class="nav-link px-2 text-white">FAQs</a></li>
+                <li><a href="/encabezado" class="nav-link px-2 text-white">Acerca</a></li>
+
+                <!--  de aqui-->
+                <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        <span th:text="${#authentication.name}">Opciones</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <span class="dropdown-item" th:text=" ' App: ' + ${session.numVisitasApp}"></span>
+                        </li>
+                        <li>
+                            <span class="dropdown-item" th:text=" ' index: ' + ${session.numVisitasIndex}"></span>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li><a href="/perfil/new" class="nav-link px-2 text-secondary">Crear prefil</a></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <!--esto es para crear un nuevo perfil-->
+                        <li>
+                            <a href="/perfil/list" class="nav-link px-2 text-secondary">Lista perfiles</a>
+
+                        </li>
+
+
+                    </ul>
+                </li>
+            </ul>
+            <!-- Esto es para que te pueda filtrar estoy llamando al controlador-->
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search"   method="get" action="/figuras/filtar" >
+                <input type="text" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Buscar">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+
+
+
+
+            <div class="text-end">
+
+                <a href="/creador" class="btn btn-outline-light me-2">Creador</a>
+            </div>
+                <div class="text-end">
+
+                    <form id="logoutForm" th:action="@{/usuario/logout}" method="post">
+                        <!-- Puedes agregar campos ocultos si es necesario -->
+                        <button type="submit" class="btn btn-warning">
+                            <i class="fas fa-sign-out-alt"></i> Exit
+                        </button>
+                    </form>
+                </div>
+
+
+           <!--   Son para que te cuentes los inicios de sesion est atambien puesto arriba
+           <div  sec:authorize="hasRole('ROLE_ADMIN')" >
+
+                    <span class="dropdown-item" th:text=" ' App: ' + ${session.numVisitasApp}"></span>
+
+
+                    <span class="dropdown-item" th:text=" ' index: ' + ${session.numVisitasIndex}"></span>
+            </div> -->
+
+
+
+        </div>
+    </div>
+</header>
+
+
+
+  <div class="container-fluid">
+
+      <div class="card">
+
+          <h3> Lista de figura</h3>
+          <div class="card-body">
+
+              <table class="table table-striped">
+                  <thead>
+                  <tr>
+                      <th>Imagen</th>
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th> Arco</th>
+                      <th> Descripcion</th>
+                      <th>Precio</th>
+
+                      <th>Pago</th>
+                      <th  sec:authorize="hasRole('ROLE_ADMIN')">Botones</th>
+                  </tr>
+                  </thead>
+
+
+
+
+
+
+
+                  <tbody>
+                  <tr th:each="persona: ${listaFigura}">
+                      <td  > <img th:src="${persona.url}" alt="luffie">  </td>
+                      <td th:text="${persona.id}">ID </td>
+                      <td th:text="${persona.nombre}"> Nombre </td>
+                      <!-- El interrogante sirve para para que te persona.te lleve a la clase arco .nombre que tenemos creado y asi te lo coja bien y el la pagian wed se vea bien-->
+                      <td th:text="${persona.arco?.nombre}">Apellido   </td>
+                      <td th:text="${persona.des}">Descripccion  </td>
+                      <td th:text="${persona.precio}">Precio   </td>
+                      <td>
+
+                          <input class="form-check-input" type="checkbox" id="compra">
+                          <label class="form-check-label" for="compra">Compra</label>
+
+                      </td>
+                      <!-- >  mirar esto por que es para poner un logo a los enlaces  <!-->
+
+
+
+                      <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/edit/{id}(id=${persona.id})}">
+                          <i class="bi bi-brush"></i>
+                      </a>
+
+                          <a th:href="@{/figuras/delete/{id}(id=${persona.id})}">
+                              <i class="bi bi-x-circle-fill"></i>
+                          </a>
+                      </td>
+
+
+
+                  </tr>
+                  </tbody>
+              </table>
+
+              <div class="pt-3">
+                  <a href="/figuras/new" class="btn btn-primary">Añadir</a>
+                  <a href="/pago" class="btn btn-primary">Pago</a>
+              </div>
+
+
+
+
+          </div>
+      </div>
+
+  </div>
+
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}" ></script>
+</body>
+</html>

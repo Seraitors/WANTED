@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Precios</title>
+
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+                <li> <img src="/Imagen/calabera.png" id="foto" alt="Tu imagen" class="w-25 h-60"></li>
+                <li><a href="/figuras/lista" class="nav-link px-2 text-secondary">Inicio</a></li>
+                <li><a href="/caracteristicas" class="nav-link px-2 text-white">Características</a></li>
+                <li><a href="/pagoEnca" class="nav-link px-2 text-white">Precios</a></li>
+                <li><a href="/faqs" class="nav-link px-2 text-white">FAQs</a></li>
+                <li><a href="/encabezado" class="nav-link px-2 text-white">Acerca</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Buscar">
+            </form>
+
+            <div class="text-end">
+                <a href="/creador" class="btn btn-outline-light me-2">Creador</a>
+                <a href="/inicio" class="btn btn-warning">Exit</a>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<form th:action="@{/pago/figura}" method="post">
+
+
+<div class="container-fluid" >
+
+
+    <div class="card">
+
+
+        <div class="card-body">
+
+            <h2> Pago de reservas</h2>
+            <p>
+                PAGO COMPLETO en el mismo momento de realizar la reserva. En este caso, todo el proceso será exactamente igual que cuando compras una figura que ya tenemos en stock.<br>
+                PAGO A PLAZOS MENSUALES: </p>
+               <ul>
+                <li>Para figuras de hasta 50€: 30% en el primer pago. </li>
+            <li>      Para figuras de más de 50€: 20% en el primer pago.  </li>
+            <li> Puedes elegir el número de plazos mensuales y acorde a esa cifra, te enviaremos un correo electrónico con una propuesta de pagos mensuales (el número de plazos no podrá prolongarse más allá de la fecha de la salida de la figura). </li>
+            <li>  Una vez nos llegue el primer pago, tu reserva quedará confirmada.</li>
+            <li> El último plazo deberá quedar pagado antes de enviar la figura. </li>
+        </ul>
+        <h2>Cancelación de reservas </h2>
+            <p>
+                Las reservas son una compra en firme. Por lo tanto, MegaOtaku.com NO ACEPTA CANCELACIONES DE PEDIDOS DE ARTÍCULOS EN RESERVA, excepto si el precio final del producto es superior al que has pagado por la reserva (ver punto 3). Ten en cuenta que nosotros tenemos que pedir estos artículos a nuestros distribuidores y son pedidos en firme sin derecho a devolución.
+            </p>
+
+            <p>
+
+                Los retrasos en la fecha de salida no son motivo de cancelación de la reserva, dado que las fechas de llegada de la figura a nuestros almacenes son aproximaciones completamente orientativas y están sujetas a todo tipo de factores externos a nosotros que pueden causar retrasos.
+            </p>
+            <p>
+                En el caso del pago a plazos, no se aceptarán devoluciones de los pagos parciales ya hechos si decides cancelar la reserva después de haber pagado alguno de los plazos.
+
+            </p>
+
+            <h2> Precios</h2>
+            <p>  Los precios de las reservas son siempre una estimación aproximada y pueden variar ligeramente debido a las diferencias de cotización entre el euro y el yen u otras divisas. Esto no es muy frecuente a no ser que haya un gran cambio financiero en las bolsas por lo que el precio que ofrecemos suele ser definitivo y en el caso de que varíe, las diferencias suelen ser muy pequeñas.</p>
+            <p> En caso de cualquier posible cambio de precio antes del lanzamiento de un producto, procederemos a avisar a los clientes afectados para que puedan decidir si están de acuerdo con el nuevo precio. En caso negativo, MegaOtaku.com devolverá íntegramente el importe total pagado por el cliente. </p>
+
+            <h2> Descuento por reserva</h2>
+            <p> Todas las figuras en reserva tienen por defecto un DESCUENTO PROMOCIONAL EN SU PRECIO. Podrás beneficiarte de ese descuento hasta el momento en que finalice la fecha límite para la reserva. Te recomendamos reservarlas lo antes posible para no quedarte sin ellas y asegurarte el mejor precio.</p>
+
+            <h2>Distribuidores </h2>
+            <p> En caso de que los distribuidores no puedan proporcionarnos la cantidad solicitada de productos para cubrir todas las reservas, las unidades que nos lleguen se servirán por estricto orden de entrada de pedidos con reservas. MegaOtaku.com avisará a todos los posibles afectados a los que no se les pueda servir una reserva, y en el caso de que finalmente no sea posible conseguir el o los artículos solicitados, procederemos a devolver el importe total pagado por dichos artículos. En el caso de que un distribuidor no pueda cubrir la cantidad solicitada de productos, MegaOtaku.com no se hace responsable de cualquier inconveniente que pueda causar a los clientes afectados, al tratarse de causas ajenas a nuestra voluntad.  </p>
+
+            <h2> Sistema de compras</h2>
+            <p> El sistema de compras de figuras que ya tenemos en stock y el sistema de reservas funcionan por separado y son dos procedimientos completamente distintos, de manera que no debes mezclar en el mismo pedido productos que ya tenemos en stock con productos en reserva. En caso de que lo hicieras así, todos los productos serán enviados cuanto nos llegue el último producto en reserva que aparezca en tu pedido, es decir, cuando tengamos todos los productos disponibles físicamente.  </p>
+            <p> En el caso de que tu pedido incluya solo artículos en reserva con diferentes fechas de salida, el envío se efectuará igualmente cuando nos llegue el último artículo. No mezcles productos en stock con productos en reserva si no quieres esperar hasta el lanzamiento del producto con la fecha de salida más tardía.</p>
+
+            <h2>Metodos de pagos</h2>
+            <img src="Imagen/ImagenPrecio/visa.png" alt="visa">
+            <img src="/Imagen/ImagenPrecio/Mastercad.png" alt="masterCar">
+            <img src="/Imagen/ImagenPrecio/paypal.png" alt="paypal">
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="pt-3">
+
+    <button type="submit" class="btn btn-primary"> Inicio</button>
+</div>
+
+
+
+
+
+
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}" ></script>
+</form>
+</body>
+</html>

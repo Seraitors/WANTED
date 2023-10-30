@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Título del Formulario</title>
+  <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<form method="post" action="#"
+      th:action="@{/figuras/new/submit}"
+      th:object="${figuraDTO}">
+  <h4 >Agregar elemento</h4>
+  <div>
+    <div class="input-group mb-3"
+    th:classappend="${#fields.hasErrors('url')} ? 'has-error'">
+         >
+      <label class="form-label" for="url" > url</label>
+      <input class="form-control" type="text" id="url" placeholder="url" th:field="*{url}" />
+      <span th:if="${#fields.hasErrors('url')}" th:errors="*{url}"
+            class="help-block" id="url-error">Errores</span>
+
+
+    </div>
+
+    <div class="input-group mb-3"
+         th:classappend="${#fields.hasErrors('id')} ? 'has-error'">
+      <label class="form-label" for="id" >Id</label>
+      <input class="form-control" type="text" id="id" placeholder="Id" th:field="*{id}"
+             th:attrappend="readonly=${figuraDTO.id != null and modoEdicion} ? 'readonly' : null" />
+      <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"
+            class="help-block" id="id-error">Errores</span>
+
+    </div>
+    <div class="input-group mb-3"
+         th:classappend="${#fields.hasErrors('nombre')} ? 'has-error'">
+      <label class="form-label" for="nombre" >Nombre</label>
+      <input class="form-control" type="text" id="nombre" placeholder="Nombre" th:field="*{nombre}" />
+
+      <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+            class="help-block" id="nombre-error">Errores</span>
+
+    </div>
+
+    <div class="input-group mb-3"
+         th:classappend="${#fields.hasErrors('arco')} ? 'has-error'">
+      <label class="form-label" for="arco" >Arco</label>
+      <input class="form-control" type="text" id="arco" placeholder="Apellido" th:field="*{arco}" />
+      <span th:if="${#fields.hasErrors('arco')}" th:errors="*{arco}"
+            class="help-block" id="arco-error">Errores</span>
+
+    </div>
+
+
+
+    <div class="input-group mb-3"
+         th:classappend="${#fields.hasErrors('precio')} ? 'has-error'">
+      <label class="form-label" for="precio" >Precio</label>
+      <input class="form-control" type="number" id="precio" placeholder="Precio" th:field="*{precio}" />
+      <span th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"
+            class="help-block" id="precio-error">Errores</span>
+
+    </div>
+
+    <div class="input-group mb-3"
+         th:classappend="${#fields.hasErrors('des')} ? 'has-error'">
+      <label class="form-label" for="des" >Descripción</label>
+      <input class="form-control" type="text" id="des" placeholder="Descripción" th:field="*{des}" />
+      <span th:if="${#fields.hasErrors('des')}" th:errors="*{des}"
+            class="help-block" id="des-error">Errores</span>
+
+    </div>
+  </div>
+
+  <button th:href="@{/figuras/lista}" type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}" ></script>
+</body>
+</html>

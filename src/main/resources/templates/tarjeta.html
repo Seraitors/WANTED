@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio</title>
+  <!-- Agregar Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/metodoPago.css">
+</head>
+<body>
+<header class="p-3 bg-dark text-white" >
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+        <li> <img src="/Imagen/calabera.png" id="foto" alt="Tu imagen" class="w-25 h-60"></li>
+        <li><a href="/figuras/lista" class="nav-link px-2 text-secondary">Inicio</a></li>
+        <li><a href="/caracteristicas" class="nav-link px-2 text-white">Características</a></li>
+        <li><a href="/pagoEnca" class="nav-link px-2 text-white">Precios</a></li>
+        <li><a href="/faqs" class="nav-link px-2 text-white">FAQs</a></li>
+        <li><a href="/encabezado" class="nav-link px-2 text-white">Acerca</a></li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Buscar">
+      </form>
+
+      <div class="text-end">
+        <a href="/creador" class="btn btn-outline-light me-2">Creador</a>
+        <a href="/inicio" class="btn btn-warning">Exit</a>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<div class="container bg-white custom-width ">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <form action="procesar.php" method="post">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba su nombre" maxlength="8" minlength="1">
+        </div>
+
+        <div class="form-group">
+          <label for="apellido">Apellido:</label>
+          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Escriba su primer apellido" maxlength="10" minlength="1">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="xxx@gmail.com">
+        </div>
+
+        <div class="form-group">
+          <label for="Calle">Calle/Vía:</label>
+          <input type="text" class="form-control" id="Calle" name="Calle" placeholder="Manuel maroto 24 3A">
+        </div>
+
+        <div class="form-group">
+          <label for="tarjeta">Número de la tarjeta:</label>
+          <input type="text" class="form-control" id="tarjeta" name="tarjeta" placeholder="xxxx xxxx xxxx xxxx">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Pago</button>
+        <a href="/figuras/lista" class="btn btn-warning">Lista</a>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Agregar Bootstrap JS y jQuery (opcional, solo si es necesario) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

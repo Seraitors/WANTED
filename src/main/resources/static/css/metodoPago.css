@@ -1,0 +1,14 @@
+body{
+
+    background-image: url("../Imagen/pago.jpg");
+    background-repeat: no-repeat;
+    background-position: center  ; background-size: cover;
+}
+
+
+
+.custom-width {
+
+    max-width: 400px; /* Establece el ancho máximo que desees */
+    float: right;
+}

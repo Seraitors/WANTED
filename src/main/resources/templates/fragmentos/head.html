@@ -1,0 +1,28 @@
+<head th:fragment="encabezado(titulo,enlaces)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <title th:replace="${titulo}">Título</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font awesome icons -->
+    <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet" type="text/css"/>
+    <!-- Estilos o scripts adicionales -->
+    <th:block th:replace="${enlaces}" />
+</head>
+
+
+
+
+
+<!--
+<head th:fragment="encabezado(titulo,enlaces)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <title th:replace="${titulo}">Título</title>
+    &lt;!&ndash; Estilos o scripts adicionales &ndash;&gt;
+    <th:block th:replace="${enlaces}" />
+</head>-->

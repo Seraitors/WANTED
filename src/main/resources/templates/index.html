@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <!-- Agregar Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { background-image: url("/Imagen/613Yd-R16IL.jpg") ; background-repeat: no-repeat;
+            background-position: center  ; background-size: cover; height: 1000px;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body >
+
+<h1>Bienvenidos a wanted </h1>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class=" m-0 ml-6">
+            <form th:action="@{/sesion}" method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" maxlength="10" minlength="1">
+                    <span th:if="${errorNombre}" class="text-danger">El nombre es obligatorio</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Escriba su primer apellido" maxlength="10" minlength="1">
+                    <span th:if="${errorApellido}" class="text-danger">El apellido es obligatorio</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" id="email" name="correo" autocomplete="off" placeholder="xxx@gmail.com">
+                    <span th:if="${errorCorreo}" class="text-danger">El correo es obligatorio</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="contrasena" placeholder="Contraseña">
+                    <span th:if="${errorContra}" class="text-danger">La contraseña es obligatorio</span>
+
+                </div>
+
+                <div class="pt-3">
+
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <a href="/registro" class="btn btn-primary">Registro</a>
+                </div>
+                <span th:if="${errorValidacion}" class="text-danger">Credenciales incorrectas</span>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
