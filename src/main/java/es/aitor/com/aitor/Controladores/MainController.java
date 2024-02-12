@@ -4,13 +4,19 @@ import es.aitor.com.aitor.Entidades.Persona;
 import es.aitor.com.aitor.Entidades.Usuario;
 import es.aitor.com.aitor.Servicios.PersonasServices;
 import es.aitor.com.aitor.Servicios.UsuariosServices;
+import es.aitor.com.aitor.dto.Aplicacion.PersonaResponseDto;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -75,12 +81,7 @@ public class MainController {
         }
     }
 
-    @GetMapping("figuras/lista")
-    public  String lista( Model model ){
-        model.addAttribute("listaFigura",servicio.findAll());
-        return "lista";
 
-    }
 
 
 
@@ -191,9 +192,6 @@ public class MainController {
     }
 
 
-
-
-
     /**
      * Esto funciona bien
      * @param id
@@ -265,8 +263,6 @@ public class MainController {
 
     @GetMapping("/faqs")
     public  String factos(){
-
-
         return "faqs";
     }
 
@@ -278,25 +274,26 @@ public class MainController {
     }
 
 
-
-
-
-    //Esto es para que te pueda filtrar por nombre
-    @GetMapping("/figuras/filtar")
-    public String listadoFiltrado(@RequestParam(name = "nombre", required = false) String nombre, Model model){
-        if (nombre != null && !nombre.isEmpty()) {
-            model.addAttribute("listaPeliculas", servicio.findByNombre(nombre));
-        } else {
-            model.addAttribute("listaPeliculas", servicio.findAll());
-        }
+    @Operation(summary = "Obtiene todas las personas", description = "Retorna una lista de todas las personas disponibles")
+    @GetMapping("/figuras/lista")
+    public  String lista(Model model, Pageable pageable){
+        model.addAttribute("listaFigura",servicio.findAllPaginated(pageable) );
         return "lista";
+
     }
 
 
 
-
-
-
+    //Esto es para que te pueda filtrar por nombre
+    @GetMapping("/figuras/filtrar")
+    public String listadoFiltrado(@RequestParam(name = "nombre", required = false) String nombre, Model model){
+        if (nombre != null && !nombre.isEmpty()) {
+            model.addAttribute("listaFigura", servicio.findByNombre(nombre));
+        } else {
+            model.addAttribute("listaFigura", servicio.findAll());
+        }
+        return "lista";
+    }
 
 
 }

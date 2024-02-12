@@ -13,7 +13,7 @@ import java.util.Set;
 @Setter
 @Builder
 @Entity
-@Table(name = "Roles")
+@Table(name = "SuperRoles")
 public class Roles {
 
 

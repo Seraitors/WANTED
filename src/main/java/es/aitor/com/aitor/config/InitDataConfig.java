@@ -71,41 +71,47 @@ public class InitDataConfig {
         Arco wano = Arco.builder().nombre("Wano").build();
         Arco marinforce = Arco.builder().nombre("Marinforce").build();
         Arco arabasta = Arco.builder().nombre("Arabasta").build();
+        Arco Despertar = Arco.builder().nombre("Despertar").build();
 
-        arcoServices.addAll(Arrays.asList(wano, marinforce, arabasta));
+        arcoServices.addAll(Arrays.asList(wano, marinforce, arabasta,Despertar));
         personasServices.addAll(
                 Arrays.asList(
                         Persona.builder()
+
+                                .id(1L)
                                 .url("/Imagen/descarga.jpeg")
                                 .nombre("Luffy")
                                 .arco(wano)
-                                .id(10L)
+
                                 .precio(90)
                                 .des("Figura de Luffy de cuando llegó a Wano")
                                 .build(),
 
                         Persona.builder()
+                                .id(2L)
                                 .url("/Imagen/zoro.jpeg")
                                 .nombre("Zoro")
                                 .arco(marinforce)
-                                .id(305L)
+
                                 .precio(100)
                                 .des("Figura de Zoro cuando se enfrentó al villano de las espadas")
                                 .build(),
 
                         Persona.builder()
+                                .id(3L)
                                 .url("/Imagen/sanji.jpeg")
                                 .nombre("Sanji")
                                 .arco(arabasta)
-                                .id(3805L)
+
                                 .precio(150)
                                 .des("Figura de Sanji salida de las termas")
                                 .build(),
                         Persona.builder()
+                                .id(4L)
                                 .url("/Imagen/kaido.jpg")
                                 .nombre("Kaido")
-                                .arco(wano)
-                                .id(23L)
+                                .arco(Despertar)
+
                                 .precio(100)
                                 .des("Figura de Kaido antes de pelear contra Luffy")
                                 .build()
@@ -117,7 +123,7 @@ public class InitDataConfig {
 
     @Bean
     public Subtipos initSubtipos() {
-        List<String> subtipos = Arrays.asList("wano", "Arabasta", "Marinforce");
+        List<String> subtipos = Arrays.asList("Wano", "Arabasta", "Marinforce","Despertar");
         return new Subtipos(subtipos);
     }
 }

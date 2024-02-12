@@ -6,6 +6,9 @@ import es.aitor.com.aitor.repositorios.PersonasRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.Normalizer;
@@ -59,12 +62,25 @@ public class PersonasServices {
                 .replaceAll("[^\\p{ASCII}]", "");
     }
 
-   public  List<Persona> findByNombre(String filtro){
+    // esto es para que funcione lo de filtrar por qu ecomo estabamos devolviendo una lista necesitabmos una Page para que funcione
+   public  Page<Persona> findByNombre(String s){
 
-       return repositorio.findByNombreContainsIgnoreCase(unaccent(filtro));
+       List<Persona> list = repositorio.findByNombreContainsIgnoreCase(unaccent(s));
+       return new PageImpl<>(list);
    }
 
+    public Page<Persona> findAllPaginated(Pageable pageable) {
+        return repositorio.findAll(pageable);
+    }
 
 
+ public  Persona save(Persona p){
+        return  repositorio.save(p);
+
+ }
+
+    public void deleteById(Long id) {
+        repositorio.deleteById(id);
+    }
 
 }

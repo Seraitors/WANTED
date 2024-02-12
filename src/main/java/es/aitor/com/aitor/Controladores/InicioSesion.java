@@ -2,9 +2,10 @@ package es.aitor.com.aitor.Controladores;
 
 
 import es.aitor.com.aitor.Entidades.Registrar;
-import es.aitor.com.aitor.Entidades.Roles;
 import es.aitor.com.aitor.Servicios.RegistrarService;
 import es.aitor.com.aitor.Servicios.RolesService;
+import es.aitor.com.aitor.dto.Usuario.PerfilSignupDto;
+import es.aitor.com.aitor.dto.Usuario.UsuarioSignupDto;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -59,19 +60,22 @@ public class InicioSesion {
         return "redirect:/indexSeguridad";
     }
 
+
+    // Roles son los perfiles cambiamos por qu e tenemso nuevas cosas en el dto
+    // con esto cuando iniciamos sesion ya funciona el admin de resgistrarte
     @ModelAttribute("listaPerfiles")
-    public List<Roles> listaPerfiles() {
-        return rolesService.findAll();
+    public List<PerfilSignupDto> listaPerfiles() {
+        return rolesService.findAllDto();
     }
 
     @GetMapping("/usuario/signup")
     public String signup(Model model){
-        model.addAttribute("usuarioDto", new Registrar());
+        model.addAttribute("usuarioDto", UsuarioSignupDto.builder().build());
         return "usuario/signup";
     }
 
     @PostMapping("/usuario/signup")
-    public String signupSubmit(@Valid @ModelAttribute("usuarioDto") Registrar nuevoUsuario,
+    public String signupSubmit(@Valid @ModelAttribute("usuarioDto") UsuarioSignupDto dto,
                                BindingResult bindingResult,
                                Model model) {
         if (bindingResult.hasErrors()) {
@@ -81,13 +85,13 @@ public class InicioSesion {
             return "usuario/login";
             /*return "Añadir";*/
         } else {
-            Registrar usuario = registrarService.findByUsernameOrEmail(nuevoUsuario.getUsername(), nuevoUsuario.getEmail());
+            Registrar usuario = registrarService.findByUsernameOrEmail(dto.username(), dto.email());
             if (usuario != null) { // el usuario ya existe
                 bindingResult.rejectValue("username", "username.existente",
                         "ya existe un usuario con ese username");
                 return "usuario/signup";
             }
-            registrarService.save(nuevoUsuario);
+            registrarService.save(dto);
             return "redirect:/usuario/login";
 
         }

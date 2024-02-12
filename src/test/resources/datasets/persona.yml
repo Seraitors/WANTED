@@ -1,0 +1,32 @@
+persona:
+  - id : 1
+    des: Figura de Luffy de cuando llegó a Wano
+    nombre: Luffy
+    precio: 90
+    url: /Imagen/descarga.jpeg
+    tipo_arco: Wano
+
+  - id : 2
+    des : Figura de Zoro cuando se enfrentó al villano de las espadas
+    nombre: Zoro
+    precio : 100
+    url: /Imagen/zoro.jpeg
+    tipo_arco: Marinforce
+
+
+
+  - id: 3
+    des: Figura de Sanji salida de las termas
+    nombre: Sanji
+    precio: 150
+    url: /Imagen/sanji.jpeg
+    tipo_arco: Arabasta
+
+
+
+  - id: 4
+    des: Figura de Kaido antes de pelear contra Luffy
+    nombre: Kaido
+    precio: 200
+    url: /Imagen/kaido.jpg
+    tipo_arco: Wano

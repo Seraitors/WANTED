@@ -1,7 +1,9 @@
 package es.aitor.com.aitor.Controladores;
 
 import es.aitor.com.aitor.Entidades.Roles;
+import es.aitor.com.aitor.Servicios.PersonasServices;
 import es.aitor.com.aitor.Servicios.RolesService;
+import es.aitor.com.aitor.dto.Usuario.PerfilSignupDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -22,8 +25,10 @@ import java.util.Optional;
 
 public class PerfilController {
 
-
+    // roles son mis perfiles
     private final RolesService rolesService;
+
+    private  final PersonasServices personasServices;
 
     @GetMapping({"/", "/list"})
     public String listado(Model model) {
@@ -34,6 +39,11 @@ public class PerfilController {
     public String nuevo(Model model){
         model.addAttribute("perfilDto", new Roles());
         return "perfil/form";
+    }
+
+    @ModelAttribute("listaPerfiles")
+    public List<PerfilSignupDto> listaPerfiles() {
+        return rolesService.findAllDto();
     }
 
     @PostMapping("/new")

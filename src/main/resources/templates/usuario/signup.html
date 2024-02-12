@@ -40,8 +40,8 @@
 
           <div class="form-check mb-3">
 
-            <div th:each="perfil : ${listaPerfiles}">
-              <input  type="checkbox" class="form-check-input"
+            <div class="form-check form-check-inline" th:each="perfil : ${listaPerfiles}">
+              <input  type="checkbox" class="form-check-input" th:field="*{roles}"
                       th:value="${perfil.id}"
                       th:text="${perfil.nombre}">
               <!--

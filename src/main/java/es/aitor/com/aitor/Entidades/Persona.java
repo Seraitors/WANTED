@@ -19,8 +19,10 @@ import java.time.LocalDate;
 public class Persona {
     @Id @GeneratedValue
     //@Min(value=1, message = "{mascota.id.mayorquecero}")
+    @Column(nullable = false,unique = true)
     private  Long id;
-    @Column(nullable = false,unique = true,length = 50)
+
+    @Column(nullable = false,unique = false,length = 50)
     @NotNull( message = "el tipo debe ir rellenado")
     private String url;
 
@@ -29,8 +31,7 @@ public class Persona {
     // @NotNull( message = "el tipo debe ir rellenado")
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "tipo_arco_id")
-
+    @JoinColumn(name = "tipo_arco", referencedColumnName = "nombre")
     private  Arco arco;
 
     private int precio;
